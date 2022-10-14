@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
+import * as MOCKED_USERS from '../data/users.json';
+import { IUser } from './types/user.interface';
+
 @Injectable()
 export class UserService {
-  findAll() {
-    return `This action returns all user`;
+  findAll(): IUser[] {
+    return MOCKED_USERS.users;
   }
 
   findOne(id: number) {
