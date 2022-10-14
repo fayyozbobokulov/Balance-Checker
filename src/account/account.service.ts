@@ -36,6 +36,6 @@ export class AccountService {
   }
 
   private convertEURtoUSD(amount: number): number {
-    return amount / 1.03;
+    return +(amount / 1.03).toFixed(2);
   }
 }
