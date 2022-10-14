@@ -9,7 +9,14 @@ export class UserService {
     return MOCKED_USERS.users;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(name: string): IUser {
+    const user = MOCKED_USERS.users.find((user: IUser) =>
+      this.compareTwoString(name, user.name),
+    );
+    return user;
+  }
+
+  private compareTwoString(string1: string, string2: string): boolean {
+    return string1.toUpperCase() === string2.toUpperCase();
   }
 }
